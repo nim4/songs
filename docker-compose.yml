@@ -4,15 +4,17 @@ services:
   mongo:
     image: mongo
     restart: unless-stopped
+  redis:
+    image: mongo
+    restart: unless-stopped
+  songs:
+    build: songs
+    restart: unless-stopped
     ports:
-      - "27017:27017"
-#  songs:
-#    build: songs
-#    restart: unless-stopped
-#    ports:
-#      - "5000:5000"
-#    depends_on:
-#      - mongo
+      - "5000:5000"
+    depends_on:
+      - mongo
+      - redis
   mongo-seed:
     build: mongo-seed
     restart: on-failure

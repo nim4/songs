@@ -1,0 +1,2 @@
+from songs.repositories.song_repository import SongRepository
+from songs.repositories.rating_repository import RatingRepository
