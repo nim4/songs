@@ -1,0 +1,4 @@
+mongo-seed/
+venv/
+Dockerfile
+docker-compose.yml

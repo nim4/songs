@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3'
 
 services:
   mongo:
@@ -6,11 +6,19 @@ services:
     restart: unless-stopped
     ports:
       - "27017:27017"
+#  songs:
+#    build: songs
+#    restart: unless-stopped
+#    ports:
+#      - "5000:5000"
+#    depends_on:
+#      - mongo
   mongo-seed:
     build: mongo-seed
     restart: on-failure
     environment:
       MONGO_HOST: mongo
+      MONGO_DATABASE: yousician
       MONGO_COLLECTION: songs
       MONGO_FILE: songs.json
     depends_on:
